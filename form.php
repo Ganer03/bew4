@@ -27,9 +27,9 @@ if (!empty($messages)) {
 ?>
 <div class="formss">
 <form action="index.php" method="POST">
-    <label><input name="fio" value="Введите ФИО"/></label>
-    <label><input name="email" value="Введите почту"/></label>
-    <label><select name="year">
+    <label>ФИО:<br/><input name="fio" <?php if ($errors['fio']) {print 'class="error"';} ?> value="<?php print $values['fio']; ?>"/></label>
+    <label>Почта:<br/><input name="email" <?php if ($errors['email']) {print 'class="error"';} ?> value="<?php print $values['email']; ?>"/></label>
+    <label>Год рождения:<br/><select name="year">
     <?php
     for ($i = 1922; $i <= 2022; $i++) {
         printf('<option value="%d">%d год</option>', $i, $i);
@@ -75,7 +75,7 @@ if (!empty($messages)) {
     </label><br/>
     <label>
         Биография:<br/>
-        <textarea name="biography">Расскажите о себе</textarea>
+        <textarea name="biography" <?php if ($errors['biography']) {print 'class="error"';} ?> value="<?php print $values['biography']; ?>"></textarea>
     </label><br/>
     <label>
         <input type="checkbox" checked="checked" name="check-1"/>
