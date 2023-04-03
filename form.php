@@ -4,8 +4,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Задание 3</title>
     <link rel="stylesheet" href="style.css">
+     <style>
+/* Сообщения об ошибках и поля с ошибками выводим с красным бордюром. */
+.error {
+  border: 2px solid red;
+}
+    </style>
 </head>
 <body>
+<?php
+if (!empty($messages)) {
+  print('<div id="messages">');
+  // Выводим все сообщения.
+  foreach ($messages as $message) {
+    print($message);
+  }
+  print('</div>');
+}
+
+// Далее выводим форму отмечая элементы с ошибками классом error
+// и задавая начальные значения элементов ранее сохраненными.
+?>
 <div class="formss">
 <form action="index.php" method="POST">
     <label><input name="fio" value="Введите ФИО"/></label>
