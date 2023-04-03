@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Задание 3</title>
+    <title>Задание 4</title>
     <link rel="stylesheet" href="style.css">
      <style>
 /* Сообщения об ошибках и поля с ошибками выводим с красным бордюром. */
@@ -31,19 +31,23 @@ if (!empty($messages)) {
     <label>Почта:<br/><input name="email" <?php if ($errors['email']) {print 'class="error"';} ?> value="<?php print $values['email']; ?>"/></label>
     <label>Год рождения:<br/><select name="year">
     <?php
-    for ($i = 1922; $i <= 2022; $i++) {
+    for ($i = 1922; $i < int($values['year']) $i++) {
+        printf('<option value="%d">%d год</option>', $i, $i);
+    }
+    for ($i = int($values['year']); $i <=2022 $i++) {
         printf('<option value="%d">%d год</option>', $i, $i);
     }
     ?></select></label>
     Пол:<br/>
-    <label>
-        <input type="radio" checked="checked" name="pol" value="M"/>
-        M
-    </label>
     <label class="pot">
-        <input type="radio" name="pol" value="W"/>
-        W
+        <input type="radio" checked="checked" name="pol" value=<?php $values['pol']);?>/>
+        <?php print($values['pol'])); ?>
     </label>
+    <?php if($values['pol']) == 'W')
+            printf('<label class="pot"><input type="radio" name="pol" value="M"/>M</label>');
+          else
+            printf('<label class="pot"><input type="radio" name="pol" value="W"/>W</label>');
+    ?>
     Кол-во конечностей:<br/>
     <label>
         <input type="radio" checked="checked" name="limbs" value="1"/>
