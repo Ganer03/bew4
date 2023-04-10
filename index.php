@@ -90,13 +90,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   // Складываем предыдущие значения полей в массив, если есть.
   $values = array();
   $values['fio'] = empty($_COOKIE['fio_value']) ? '' : $_COOKIE['fio_value'];
-  $values['email'] = empty($_COOKIE['email_error']) ? '' : $_COOKIE['email_error'];
-  $values['year'] = empty($_COOKIE['year_error']) ? '' : $_COOKIE['year_error'];
-  $values['limbs'] = empty($_COOKIE['limbs_error']) ? '' : $_COOKIE['limbs_error'];
-  $values['pol'] = empty($_COOKIE['pol_error']) ? '' : $_COOKIE['pol_error'];
-  $values['super'] = empty($_COOKIE['super_error']) ? '' : $_COOKIE['super_error'];
-  $values['biography'] = empty($_COOKIE['biography_error']) ? '' : $_COOKIE['biography_error'];
-  $values['check-1'] = empty($_COOKIE['check_1_error']) ? '' : $_COOKIE['check_1_error'];
+  $values['email'] = empty($_COOKIE['email_value']) ? '' : $_COOKIE['email_value'];
+  $values['year'] = empty($_COOKIE['year_value']) ? '' : (int)$_COOKIE['year_value'];
+  $values['limbs'] = empty($_COOKIE['limbs_value']) ? '' : (int)$_COOKIE['limbs_value'];
+  $values['pol'] = empty($_COOKIE['pol_value']) ? '' : $_COOKIE['pol_value'];
+  $values['super'] = empty($_COOKIE['super_value']) ? '' : $_COOKIE['super_value'];
+  $values['biography'] = empty($_COOKIE['biography_value']) ? '' : $_COOKIE['biography_value'];
+  $values['check-1'] = empty($_COOKIE['check_1_value']) ? '' : $_COOKIE['check_1_value'];
   // TODO: аналогично все поля.
 
   // Включаем содержимое файла form.php.
@@ -126,7 +126,7 @@ else {
   }
   else {
     // Сохраняем ранее введенное в форму значение на месяц.
-    setcookie('email_error', $_POST['email'], time() + 30 * 24 * 60 * 60);
+    setcookie('email_value', $_POST['email'], time() + 30 * 24 * 60 * 60);
   }
   
     if (empty($_POST['empty($_POST['year']) || !is_numeric($_POST['year']) || !preg_match('/^\d+$/', $_POST['year'])'])) {
@@ -136,7 +136,7 @@ else {
   }
   else {
     // Сохраняем ранее введенное в форму значение на месяц.
-    setcookie('year_error', $_POST['year'], time() + 30 * 24 * 60 * 60);
+    setcookie('year_value', $_POST['year'], time() + 30 * 24 * 60 * 60);
   }
   
     if (empty($_POST['limbs']) || !is_numeric($_POST['limbs']) ||($_POST['limbs']<1)||($_POST['limbs']>4)) {
@@ -146,7 +146,7 @@ else {
   }
   else {
     // Сохраняем ранее введенное в форму значение на месяц.
-    setcookie('limbs_error', $_POST['limbs'], time() + 30 * 24 * 60 * 60);
+    setcookie('limbs_value', $_POST['limbs'], time() + 30 * 24 * 60 * 60);
   }
   
     if (empty($_POST['pol'])) {
@@ -156,7 +156,7 @@ else {
   }
   else {
     // Сохраняем ранее введенное в форму значение на месяц.
-    setcookie('pol_error', $_POST['pol'], time() + 30 * 24 * 60 * 60);
+    setcookie('pol_value', $_POST['pol'], time() + 30 * 24 * 60 * 60);
   }
   
     if (empty($_POST['super'])) {
@@ -166,7 +166,7 @@ else {
   }
   else {
     // Сохраняем ранее введенное в форму значение на месяц.
-    setcookie('super_error', $_POST['super'], time() + 30 * 24 * 60 * 60);
+    setcookie('super_value', $_POST['super'], time() + 30 * 24 * 60 * 60);
   }
   
     if (empty($_POST['biography'])) {
@@ -176,7 +176,7 @@ else {
   }
   else {
     // Сохраняем ранее введенное в форму значение на месяц.
-    setcookie('biography_error', $_POST['biography'], time() + 30 * 24 * 60 * 60);
+    setcookie('biography_value', $_POST['biography'], time() + 30 * 24 * 60 * 60);
   }
   
     if (empty($_POST['check-1']) || !($_POST['check-1'] == 'on' || $_POST['check-1'] == 1)) {
@@ -186,7 +186,7 @@ else {
   }
   else {
     // Сохраняем ранее введенное в форму значение на месяц.
-    setcookie('check_1_error', $_POST['check-1'], time() + 30 * 24 * 60 * 60);
+    setcookie('check_1_value', $_POST['check-1'], time() + 30 * 24 * 60 * 60);
   }
 
 // *************
