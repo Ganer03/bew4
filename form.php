@@ -81,6 +81,14 @@ if (!empty($messages)) {
         ?>
         <label>
             Сверхспособности:<br/>
+            <?php
+            if($errors['limbs'])
+                printf('<select name="super[]" multiple="multiple" class="error">
+                <option value='1'>бессмертие</option>
+                <option value='2' selected="selected">прохождение сквозь стены</option>
+                <option value='3' selected="selected">левитация</option>
+            </select>');
+            foreach($errors['limbs'] as $limb)
             <select name="super[]" multiple="multiple">
                 <option value='1'>бессмертие</option>
                 <option value='2' selected="selected">прохождение сквозь стены</option>
