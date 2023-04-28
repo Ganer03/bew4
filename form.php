@@ -82,7 +82,7 @@ if (!empty($messages)) {
                 printf('<label><input type="radio" name="limbs" class="error" value="%d"/>%d</label>', $i, $i);
         }
         else
-            if($values['limbs']=''){
+            if($values['limbs']==''){
                 for ($i = 1; $i <= 5; $i++)
                     printf('<label><input type="radio" name="limbs" value="%d"/>%d</label>', $i, $i);
             }
