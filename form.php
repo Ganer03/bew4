@@ -60,7 +60,6 @@ if (!empty($messages)) {
         </label>
         Пол:<br/>
         <?php
-        var_dump($values['pol']);
         if($values['pol'] == 'W'){
             printf('<label class="pot"><input type="radio" name="pol" value="M">M</label>');
             printf('<label class="pot"><input type="radio" name="pol" value="W" checked="checked">W</label>');
@@ -99,9 +98,6 @@ if (!empty($messages)) {
             <?php
             $mas = ['бессмертие', 'прохождение сквозь стены', 'левитация'];
             $flag = [0, 0, 0];
-            var_dump($values['super']);
-            foreach($values['super'] as $sup)
-                var_dump($sup);
             if($errors['super']){
                 printf('<select name="super[]" class="error" multiple="multiple">');
                 printf('<option value="1">бессмертие</option>
@@ -140,7 +136,7 @@ if (!empty($messages)) {
             <input type="checkbox" <?php if ($errors['check-1']) {print 'class="error"';} else if($values['check-1']!='') {print 'checked="checked"';}?> name="check-1"/>
             с контрактом ознакомлен (а)
         </label><br/>
-    <?php var_dump($values['biography']); ?>
+    <?php var_dump($values['check-1']); var_dump($errors['check-1']); ?>
         <input type="submit" value="Отправить"/>
     </form>
 </div>
