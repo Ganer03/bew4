@@ -119,13 +119,13 @@ if (!empty($messages)) {
                     printf('<select name="super[]" multiple="multiple">');
                     foreach($values['super'] as $sup){
                         if($mas[(int)$sup-1]){
-                            printf('<option value="%d" selected="selected">$s</option>',$sup, $mas[(int)$sup-1]);
+                            printf('<option value="%d" selected="selected">%s</option>',$sup, $mas[(int)$sup-1]);
                             $flag[(int)$sup-1] = 1;
                         }
                     }
                     for($i=0;$i<sizeof($flag);$i++){
                         if(!$flag[$i]){
-                            printf('<option value="%d" >$s</option>',$i+1, $mas[$i]);
+                            printf('<option value="%d" >%s</option>',$i+1, $mas[$i]);
                         }
                     }
             }
