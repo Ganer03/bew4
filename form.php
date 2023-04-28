@@ -76,18 +76,24 @@ if (!empty($messages)) {
         ?>
         Кол-во конечностей:<br/>
         <?php
-        if($errors['radio'] || $values['radio']<1 || $values['radio']>5){
+        if($errors['radio']){
             for ($i = 1; $i <= 5; $i++)
                 printf('<label><input type="radio" name="limbs" class="error" value="%d"/>%d</label>', $i, $i);
         }
         else{
-            for ($i = 1; $i < int($values['radio']); $i++)
-                printf('<label><input type="radio" name="limbs" value="%d"/>%d</label>', $i, $i);
-            ?>
-            <label><input type='radio' name='limbs' checked="checked" value='<?php print int($values['radio'])?>'><?php print int($values['radio'])?></label>
-            <?php
-            for ($i = int($values['radio'])+1; $i <= 5; $i++)
-                printf('<label><input type="radio" name="limbs" value="%d"/>%d</label>', $i, $i);
+            if($values['radio']=''){
+                for ($i = 1; $i <= 5; $i++)
+                    printf('<label><input type="radio" name="limbs" value="%d"/>%d</label>', $i, $i);
+            }
+            else{
+                for ($i = 1; $i < int($values['radio']); $i++)
+                    printf('<label><input type="radio" name="limbs" value="%d"/>%d</label>', $i, $i);
+                ?>
+                <label><input type='radio' name='limbs' checked="checked" value='<?php print int($values['radio'])?>'><?php print int($values['radio'])?></label>
+                <?php
+                for ($i = int($values['radio'])+1; $i <= 5; $i++)
+                    printf('<label><input type="radio" name="limbs" value="%d"/>%d</label>', $i, $i);
+            }
         }
         ?>
         <label>
