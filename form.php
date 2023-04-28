@@ -107,7 +107,7 @@ if (!empty($messages)) {
             }
             else
                 if($values['super']==''){
-                    printf('<select name="super[]" class="error" multiple="multiple">');
+                    printf('<select name="super[]" multiple="multiple">');
                     printf('<option value="1">бессмертие</option>
                     <option value="2">прохождение сквозь стены</option>
                     <option value="3">левитация</option></select>');
@@ -134,7 +134,7 @@ if (!empty($messages)) {
             <textarea name="biography" <?php if ($errors['biography']) {print 'class="error"';} ?> value="<?php print $values['biography']; ?>"></textarea>
         </label><br/>
         <label>
-            <input type="checkbox" <?php if ($errors['ccheck-1']) {print 'class="error"';} else {print 'checked="checked"';}?> name="check-1"/>
+            <input type="checkbox" <?php if ($errors['check-1']) {print 'class="error"';} else {print 'checked="checked"';}?> name="check-1"/>
             с контрактом ознакомлен (а)
         </label><br/>
         <input type="submit" value="Отправить"/>
