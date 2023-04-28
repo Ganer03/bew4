@@ -45,13 +45,12 @@ if (!empty($messages)) {
                     }
                 }
                 else {
-                    var_dump($values['year']);
                     printf('<select name="year">');
                     for ($i = 1922; $i < $values['year']; $i++) {
                         printf('<option value="%d">%d год</option>', $i, $i);
                     }
                     printf('<option value="%d" selected="selected">%d год</option>', $i, $i);
-                    for ($i = int($values['year']) + 1; $i <= 2022; $i++) {
+                    for ($i = $values['year'] + 1; $i <= 2022; $i++) {
                         printf('<option value="%d">%d год</option>', $i, $i);
                     }
                 }
@@ -61,6 +60,7 @@ if (!empty($messages)) {
         </label>
         Пол:<br/>
         <?php
+        var_dump($values['pol']);
         if($values['pol'] == 'W'){
             printf('<label class="pot"><input type="radio" name="pol" value="M">M</label>');
             printf('<label class="pot"><input type="radio" name="pol" value="W" checked="checked">W</label>');
