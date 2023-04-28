@@ -118,7 +118,7 @@ if (!empty($messages)) {
             <textarea name="biography" <?php if ($errors['biography']) {print 'class="error"';} ?> value="<?php print $values['biography']; ?>"></textarea>
         </label><br/>
         <label>
-            <input type="checkbox" <?php if ($errors['biography']) {print 'class="error"';} else {print 'checked="checked"';}?> name="check-1"/>
+            <input type="checkbox" <?php if ($errors['ccheck-1']) {print 'class="error"';} else {print 'checked="checked"';}?> name="check-1"/>
             с контрактом ознакомлен (а)
         </label><br/>
         <input type="submit" value="Отправить"/>
