@@ -39,6 +39,7 @@ if (!empty($messages)) {
             }
             else {
                 if($values['year']==''){
+                    printf('<select name="year">');
                     for ($i = 1922; $i <= 2022; $i++) {
                         printf('<option value="%d">%d год</option>', $i, $i);
                     }
