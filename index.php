@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $values['year'] = empty($_COOKIE['year_value']) ? '' : (int)$_COOKIE['year_value'];
     $values['limbs'] = empty($_COOKIE['limbs_value']) ? '' : (int)$_COOKIE['limbs_value'];
     $values['pol'] = empty($_COOKIE['pol_value']) ? '' : $_COOKIE['pol_value'];
-    $values['super'] = empty($_COOKIE['super_value']) ? '' : $_COOKIE['super_value'];
+    $values['super'] = empty($_COOKIE['super_value']) ? '' : unserialize($_COOKIE['super_value']);
     $values['biography'] = empty($_COOKIE['biography_value']) ? '' : $_COOKIE['biography_value'];
     $values['check-1'] = empty($_COOKIE['check_1_value']) ? '' : $_COOKIE['check_1_value'];
     // TODO: аналогично все поля.
@@ -159,14 +159,14 @@ else {
         setcookie('pol_value', $_POST['pol'], time() + 30 * 24 * 60 * 60);
     }
 
-    if (empty($_POST['super']) || !is_array($_POST['super'])) {
+    if (empty($_POST['super']) || !is_array($_POST['super']) || $_POST['super']<1 || $_POST['super']>3) {
         // Выдаем куку на день с флажком об ошибке в поле fio.
         setcookie('super_error', '1', time() + 24 * 60 * 60);
         $errors = TRUE;
     }
     else {
         // Сохраняем ранее введенное в форму значение на месяц.
-        setcookie('super_value', $_POST['super'], time() + 30 * 24 * 60 * 60);
+        setcookie('super_value', serialize($_POST['super']), time() + 30 * 24 * 60 * 60);
     }
 
     if (empty($_POST['biography'])) {
