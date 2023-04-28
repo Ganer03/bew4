@@ -38,7 +38,7 @@ if (!empty($messages)) {
                 }
             }
             else {
-                if($values['year']==''){
+                if($values['year']=='' || $values['year']<1922 || $values['year']>2022){
                     printf('<select name="year">');
                     for ($i = 1922; $i <= 2022; $i++) {
                         printf('<option value="%d">%d год</option>', $i, $i);
@@ -58,6 +58,7 @@ if (!empty($messages)) {
             ?>
             </select>
         </label>
+        <label <?php if ($errors['pol']) print ' class="error"';?>>
         Пол:<br/>
         <?php
         if($values['pol'] == 'W'){
@@ -70,8 +71,8 @@ if (!empty($messages)) {
             printf('<label class="pot"><input type="radio" name="pol" value="W">W</label>');
         }
         else{
-            printf('<label class="pot"><input type="radio" class="error" name="pol" value="M">M</label>');
-            printf('<label class="pot"><input type="radio" class="error" name="pol" value="W">W</label>');
+            printf('<label class="pot"><input type="radio" name="pol" value="M">M</label>');
+            printf('<label class="pot"><input type="radio" name="pol" value="W">W</label>');
         }
         ?>
         Кол-во конечностей:<br/>
