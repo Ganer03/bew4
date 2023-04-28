@@ -81,7 +81,7 @@ if (!empty($messages)) {
             for ($i = 1; $i <= 5; $i++)
                 printf('<label><input type="radio" name="limbs" class="error" value="%d"/>%d</label>', $i, $i);
         }
-        else{
+        else
             if($values['limbs']=''){
                 for ($i = 1; $i <= 5; $i++)
                     printf('<label><input type="radio" name="limbs" value="%d"/>%d</label>', $i, $i);
@@ -89,13 +89,10 @@ if (!empty($messages)) {
             else{
                 for ($i = 1; $i < int($values['limbs']); $i++)
                     printf('<label><input type="radio" name="limbs" value="%d"/>%d</label>', $i, $i);
-                ?>
-                <label><input type='radio' name='limbs' checked="checked" value='<?php print int($values['limbs'])?>'><?php print int($values['radio'])?></label>
-                <?php
+                printf('<label><input type='radio' name='limbs' checked="checked" value='$i'>$i</label>');
                 for ($i = int($values['limbs'])+1; $i <= 5; $i++)
                     printf('<label><input type="radio" name="limbs" value="%d"/>%d</label>', $i, $i);
             }
-        }
         ?>
         <label>
             Сверхспособности:<br/>
