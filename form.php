@@ -71,8 +71,8 @@ if (!empty($messages)) {
         }
         else{
             if($errors['pol']){
-                printf('<label class="pot" class="error"><input type="radio" name="pol" value="M">M</label>');
-                printf('<label class="pot" class="error"><input type="radio" name="pol" value="W">W</label>');
+                printf('<label class="pot error" ><input type="radio" name="pol" value="M">M</label>');
+                printf('<label class="pot error" ><input type="radio" name="pol" value="W">W</label>');
             }
             else{
                 printf('<label class="pot"><input type="radio" name="pol" value="M">M</label>');
@@ -142,7 +142,6 @@ if (!empty($messages)) {
             <input type="checkbox" <?php if ($errors['check-1']) {print 'class="error"';} else if($values['check-1']!='') {print 'checked="checked"';}?> name="check-1"/>
             с контрактом ознакомлен (а)
         </label><br/>
-    <?php var_dump($values['pol']); var_dump($errors['pol']); ?>
         <input type="submit" value="Отправить"/>
     </form>
 </div>
