@@ -159,7 +159,7 @@ else {
         setcookie('pol_value', $_POST['pol'], time() + 30 * 24 * 60 * 60);
     }
 
-    if (empty($_POST['super']) || !is_array($_POST['super']) || $_POST['super']<1 || $_POST['super']>3) {
+    if (empty($_POST['super']) || !is_array($_POST['super']) || (int)$_POST['super']<1 || (int)$_POST['super']>3) {
         // Выдаем куку на день с флажком об ошибке в поле fio.
         setcookie('super_error', '1', time() + 24 * 60 * 60);
         $errors = TRUE;
