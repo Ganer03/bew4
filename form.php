@@ -118,9 +118,9 @@ if (!empty($messages)) {
                 else{
                     printf('<select name="super[]" multiple="multiple">');
                     foreach($values['super'] as $sup){
-                        if($mas[$sup-1]){
-                            printf('<option value="%d" selected="selected">$s</option>',$sup, $mas[$sup-1]);
-                            $flag[$sup-1] = 1;
+                        if($mas[(int)$sup-1]){
+                            printf('<option value="%d" selected="selected">$s</option>',$sup, $mas[(int)$sup-1]);
+                            $flag[(int)$sup-1] = 1;
                         }
                     }
                     for($i=0;$i<sizeof($flag);$i++){
