@@ -58,7 +58,6 @@ if (!empty($messages)) {
             ?>
             </select>
         </label>
-        <label <?php if ($errors['pol']) print ' class="error"';?>>
         Пол:<br/>
         <?php
         if($values['pol'] == 'W'){
@@ -71,15 +70,21 @@ if (!empty($messages)) {
             printf('<label class="pot"><input type="radio" name="pol" value="W">W</label>');
         }
         else{
-            printf('<label class="pot"><input type="radio" name="pol" value="M">M</label>');
-            printf('<label class="pot"><input type="radio" name="pol" value="W">W</label>');
+            if($errors['pol']){
+                printf('<label class="pot" class="error"><input type="radio" name="pol" value="M">M</label>');
+                printf('<label class="pot" class="error"><input type="radio" name="pol" value="W">W</label>');
+            }
+            else{
+                printf('<label class="pot"><input type="radio" name="pol" value="M">M</label>');
+                printf('<label class="pot"><input type="radio" name="pol" value="W">W</label>');
+            }
         }
         ?>
         Кол-во конечностей:<br/>
         <?php
         if($errors['limbs']){
             for ($i = 1; $i <= 5; $i++)
-                printf('<label><input type="radio" name="limbs" class="error" value="%d"/>%d</label>', $i, $i);
+                printf('<label class="error"><input type="radio" name="limbs" value="%d"/>%d</label>', $i, $i);
         }
         else
             if($values['limbs']==''){
