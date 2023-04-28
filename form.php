@@ -31,24 +31,21 @@ if (!empty($messages)) {
         <label>Почта:<br/><input name="email" <?php if ($errors['email']) {print 'class="error"';} ?> value="<?php print $values['email']; ?>"/></label>
         <label>Год рождения:<br/>
             <?php
-            if ($errors['year'])
+            if ($errors['year'] || $values['year']<1922 || $values['year']>2022) {
                 printf('<select name="year" class="error">');
-            else{
-                printf('<select name="year">');
-            }
-            ?>
-            <?php
-            if ($errors['year']){
                 for ($i = 1922; $i <= 2022; $i++) {
                     printf('<option value="%d">%d год</option>', $i, $i);
                 }
             }
-            for ($i = 1922; $i < int($values['year']); $i++) {
-                printf('<option value="%d">%d год</option>', $i, $i);
-            }
-            printf('<option value="%d" selected="selected">%d год</option>', $i, $i);
-            for ($i = int($values['year'])+1; $i <=2022; $i++) {
-                printf('<option value="%d">%d год</option>', $i, $i);
+            else {
+                printf('<select name="year">');
+                for ($i = 1922; $i < int($values['year']); $i++) {
+                    printf('<option value="%d">%d год</option>', $i, $i);
+                }
+                printf('<option value="%d" selected="selected">%d год</option>', $i, $i);
+                for ($i = int($values['year'])+1; $i <=2022; $i++) {
+                    printf('<option value="%d">%d год</option>', $i, $i);
+                }
             }
             ?>
             </select>
@@ -71,29 +68,47 @@ if (!empty($messages)) {
         ?>
         Кол-во конечностей:<br/>
         <?php
-        for ($i = 1; $i < int($values['radio']); $i++)
-            printf('<label><input type="radio" name="limbs" value="%d"/>%d</label>', $i, $i);
-        ?>
-        <label><input type='radio' name='limbs' checked="checked" value='<?php print int($values['radio'])?>'><?php print int($values['radio'])?></label>
-        <?php
-        for ($i = int($values['radio'])+1; $i < 5; $i++)
-            printf('<label><input type="radio" name="limbs" value="%d"/>%d</label>', $i, $i);
+        if($errors['radio'] || $values['radio']<1 || $values['radio']>5){
+            for ($i = 1; $i <= 5; $i++)
+                printf('<label><input type="radio" name="limbs" class="error" value="%d"/>%d</label>', $i, $i);
+        }
+        else{
+            for ($i = 1; $i < int($values['radio']); $i++)
+                printf('<label><input type="radio" name="limbs" value="%d"/>%d</label>', $i, $i);
+            ?>
+            <label><input type='radio' name='limbs' checked="checked" value='<?php print int($values['radio'])?>'><?php print int($values['radio'])?></label>
+            <?php
+            for ($i = int($values['radio'])+1; $i <= 5; $i++)
+                printf('<label><input type="radio" name="limbs" value="%d"/>%d</label>', $i, $i);
+        }
         ?>
         <label>
             Сверхспособности:<br/>
             <?php
-            if($errors['limbs'])
-                printf('<select name="super[]" multiple="multiple" class="error">
-                <option value='1'>бессмертие</option>
-                <option value='2' selected="selected">прохождение сквозь стены</option>
-                <option value='3' selected="selected">левитация</option>
-            </select>');
-            foreach($errors['limbs'] as $limb)
-            <select name="super[]" multiple="multiple">
-                <option value='1'>бессмертие</option>
-                <option value='2' selected="selected">прохождение сквозь стены</option>
-                <option value='3' selected="selected">левитация</option>
-            </select>
+            $mas = ['бессмертие', 'прохождение сквозь стены', 'левитация'];
+            $flag = [0, 0, 0];
+            if($errors[super]){
+                printf('<select name="super[]" class="error" multiple="multiple">');
+                printf('<option value="1">бессмертие</option>
+                <option value="2">прохождение сквозь стены</option>
+                <option value="3">левитация</option></select>');
+            }
+            else{
+                printf('<select name="super[]" multiple="multiple">');
+                foreach($values['super'] as $sup){
+                    if($mas[$sup-1]){
+                        printf('<option value="%d" selected="selected">$d</option>',$sup, $mas[$sup-1]);
+                        $flag[$sup-1] = 1;
+                    }
+                }
+                for($i=0;$i<sizeof($flag);$i++){
+                    if(!$flag[$i]){
+                        printf('<option value="%d" >$d</option>',$i+1, $mas[$i]);
+                    }
+                }
+                printf('</select>');
+            }
+            ?>
         </label><br/>
         <label>
             Биография:<br/>
@@ -106,5 +121,5 @@ if (!empty($messages)) {
         <input type="submit" value="Отправить"/>
     </form>
 </div>
-</body>
+</body
 </html>
