@@ -106,7 +106,7 @@ if (!empty($messages)) {
                 <option value="3">левитация</option></select>');
             }
             else
-                if($values['super']=''){
+                if($values['super']==''){
                     printf('<select name="super[]" class="error" multiple="multiple">');
                     printf('<option value="1">бессмертие</option>
                     <option value="2">прохождение сквозь стены</option>
