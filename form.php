@@ -134,13 +134,13 @@ if (!empty($messages)) {
         </label><br/>
         <label>
             Биография:<br/>
-            var_dump($values['biography']);
             <textarea name="biography" <?php if ($errors['biography']) {print 'class="error"';} ?> value="<?php print $values['biography'];?>"></textarea>
         </label><br/>
         <label>
             <input type="checkbox" <?php if ($errors['check-1']) {print 'class="error"';} else if($values['check-1']!='') {print 'checked="checked"';}?> name="check-1"/>
             с контрактом ознакомлен (а)
         </label><br/>
+    <?php var_dump($values['biography']); ?>
         <input type="submit" value="Отправить"/>
     </form>
 </div>
