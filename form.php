@@ -142,7 +142,7 @@ if (!empty($messages)) {
             <input type="checkbox" <?php if ($errors['check-1']) {print 'class="error"';} else if($values['check-1']!='') {print 'checked="checked"';}?> name="check-1"/>
             с контрактом ознакомлен (а)
         </label><br/>
-    <?php var_dump($values['check-1']); var_dump($errors['check-1']); ?>
+    <?php var_dump($values['pol']); var_dump($errors['pol']); ?>
         <input type="submit" value="Отправить"/>
     </form>
 </div>
