@@ -53,20 +53,22 @@ if (!empty($messages)) {
         <label>
         Пол:<br/>
         <?php
-        if($values['pol'] == 'W'){
+        if($errors['pol']){
+            printf('<label class="pot"><input type="radio" class="error" name="pol" value="M">M</label>');
+            printf('<label class="pot"><input type="radio" class="error" name="pol" value="W">W</label>');
+        }
+        else{   
+            if($values['pol'] == 'W'){
             printf('<label class="pot"><input type="radio" name="pol" value="M">M</label>');
             printf('<label class="pot"><input type="radio" name="pol" value="W" checked="checked">W</label>');
           }
-          else{
-              if($values['pol'] == 'M'){
-            printf('<label class="pot"><input type="radio" name="pol" value="M" checked="checked">M</label>');
-            printf('<label class="pot"><input type="radio" name="pol" value="W">W</label>');
-            }
-            else{
-                printf('<label class="pot"><input type="radio" class="error" name="pol" value="M">M</label>');
-                printf('<label class="pot"><input type="radio" class="error" name="pol" value="W">W</label>');
-            }
+        }
+        else{
+          if($values['pol'] == 'M'){
+              printf('<label class="pot"><input type="radio" name="pol" value="M" checked="checked">M</label>');
+              printf('<label class="pot"><input type="radio" name="pol" value="W">W</label>');
           }
+        }
         ?>
         </label>
         <label>
@@ -91,7 +93,7 @@ if (!empty($messages)) {
             <?php
             $mas = ['бессмертие', 'прохождение сквозь стены', 'левитация'];
             $flag = [0, 0, 0];
-            if($errors[super]){
+            if($errors['super']){
                 printf('<select name="super[]" class="error" multiple="multiple">');
                 printf('<option value="1">бессмертие</option>
                 <option value="2">прохождение сквозь стены</option>
