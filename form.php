@@ -98,7 +98,6 @@ if (!empty($messages)) {
             <?php
             $mas = ['бессмертие', 'прохождение сквозь стены', 'левитация'];
             $flag = [0, 0, 0];
-            var_dump($values['super']);
             if($errors['super']){
                 printf('<select name="super[]" class="error" multiple="multiple">');
                 printf('<option value="1">бессмертие</option>
