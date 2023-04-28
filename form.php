@@ -76,7 +76,6 @@ if (!empty($messages)) {
         ?>
         Кол-во конечностей:<br/>
         <?php
-        var_dump($values['limbs']);
         if($errors['limbs']){
             for ($i = 1; $i <= 5; $i++)
                 printf('<label><input type="radio" name="limbs" class="error" value="%d"/>%d</label>', $i, $i);
@@ -99,7 +98,7 @@ if (!empty($messages)) {
             <?php
             $mas = ['бессмертие', 'прохождение сквозь стены', 'левитация'];
             $flag = [0, 0, 0];
-            if($errors[super]){
+            if($errors['super']){
                 printf('<select name="super[]" class="error" multiple="multiple">');
                 printf('<option value="1">бессмертие</option>
                 <option value="2">прохождение сквозь стены</option>
