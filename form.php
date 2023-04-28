@@ -76,7 +76,7 @@ if (!empty($messages)) {
         ?>
         Кол-во конечностей:<br/>
         <?php
-        print '$values['limbs']';
+        echo '$values['limbs']';
         if($errors['limbs']){
             for ($i = 1; $i <= 5; $i++)
                 printf('<label><input type="radio" name="limbs" class="error" value="%d"/>%d</label>', $i, $i);
