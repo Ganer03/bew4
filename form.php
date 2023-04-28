@@ -104,19 +104,26 @@ if (!empty($messages)) {
                 <option value="2">прохождение сквозь стены</option>
                 <option value="3">левитация</option></select>');
             }
-            else{
-                printf('<select name="super[]" multiple="multiple">');
-                foreach($values['super'] as $sup){
-                    if($mas[$sup-1]){
-                        printf('<option value="%d" selected="selected">$d</option>',$sup, $mas[$sup-1]);
-                        $flag[$sup-1] = 1;
-                    }
+            else
+                if($values['super']=''){
+                    printf('<select name="super[]" class="error" multiple="multiple">');
+                    printf('<option value="1">бессмертие</option>
+                    <option value="2">прохождение сквозь стены</option>
+                    <option value="3">левитация</option></select>');
                 }
-                for($i=0;$i<sizeof($flag);$i++){
-                    if(!$flag[$i]){
-                        printf('<option value="%d" >$d</option>',$i+1, $mas[$i]);
+                else{
+                    printf('<select name="super[]" multiple="multiple">');
+                    foreach($values['super'] as $sup){
+                        if($mas[$sup-1]){
+                            printf('<option value="%d" selected="selected">$s</option>',$sup, $mas[$sup-1]);
+                            $flag[$sup-1] = 1;
+                        }
                     }
-                }
+                    for($i=0;$i<sizeof($flag);$i++){
+                        if(!$flag[$i]){
+                            printf('<option value="%d" >$s</option>',$i+1, $mas[$i]);
+                        }
+                    }
                 printf('</select>');
             }
             ?>
