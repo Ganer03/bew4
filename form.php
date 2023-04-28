@@ -79,7 +79,8 @@ if (!empty($messages)) {
         else{
             for ($i = 1; $i < int($values['radio']); $i++)
                 printf('<label><input type="radio" name="limbs" value="%d"/>%d</label>', $i, $i);
-            echo <label><input type='radio' name='limbs' checked="checked" value='<?php print int($values['radio'])?>'><?php print int($values['radio'])?></label>;
+            $i = int($values['radio']);
+            echo '<label><input type="radio" name="limbs" checked="checked" value="<?php print $i?>"><?php $i?></label>';
             for ($i = int($values['radio'])+1; $i <= 5; $i++)
                 printf('<label><input type="radio" name="limbs" value="%d"/>%d</label>', $i, $i);
         }
