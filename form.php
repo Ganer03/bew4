@@ -87,10 +87,10 @@ if (!empty($messages)) {
                     printf('<label><input type="radio" name="limbs" value="%d"/>%d</label>', $i, $i);
             }
             else{
-                for ($i = 1; $i < int($values['limbs']); $i++)
+                for ($i = 1; $i < $values['limbs']; $i++)
                     printf('<label><input type="radio" name="limbs" value="%d"/>%d</label>', $i, $i);
                 printf('<label><input type="radio" name="limbs" checked="checked" value="$i">$i</label>');
-                for ($i = int($values['limbs'])+1; $i <= 5; $i++)
+                for ($i = $values['limbs']+1; $i <= 5; $i++)
                     printf('<label><input type="radio" name="limbs" value="%d"/>%d</label>', $i, $i);
             }
         ?>
@@ -99,6 +99,8 @@ if (!empty($messages)) {
             <?php
             $mas = ['бессмертие', 'прохождение сквозь стены', 'левитация'];
             $flag = [0, 0, 0];
+            foreach($values['super'] as $sup)
+                var_dump($sup);
             if($errors['super']){
                 printf('<select name="super[]" class="error" multiple="multiple">');
                 printf('<option value="1">бессмертие</option>
