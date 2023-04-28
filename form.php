@@ -31,7 +31,7 @@ if (!empty($messages)) {
         <label>Почта:<br/><input name="email" <?php if ($errors['email']) {print 'class="error"';} ?> value="<?php print $values['email']; ?>"/></label>
         <label>Год рождения:<br/>
             <?php
-            if ($errors['year'] || $values['year']<1922 || $values['year']>2022) {
+            if ($errors['year']) {
                 printf('<select name="year" class="error">');
                 for ($i = 1922; $i <= 2022; $i++) {
                     printf('<option value="%d">%d год</option>', $i, $i);
